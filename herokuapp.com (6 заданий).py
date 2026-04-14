@@ -16,3 +16,17 @@ with sync_playwright() as p:
     page.locator("#password").fill("SuperSecretPassword!!")
     page.get_by_role("button", name="Login").click()
     expect(page.locator("#flash")).to_contain_text("Your username is invalid!")
+
+    # 27x08
+    page.goto("https://the-internet.herokuapp.com/login")
+    page.locator("#username").fill("tomsmith")
+    page.locator("#password").fill("SuperSecretPassword!")
+    page.get_by_role("button", name="Login").click()
+    expect(page).to_have_url("https://the-internet.herokuapp.com/secure")
+    text = page.locator(".subheader").inner_text()
+    print(text)
+    expect(page.locator(".subheader")).to_contain_text("Welcome to the Secure Area")
+
+
+
+
