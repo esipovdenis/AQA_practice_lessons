@@ -1,7 +1,9 @@
 .venv/
-venv
+venv/
 .idea/
 __pycache__/
 .pytest_cache/
 test-results/
 *.рус
+.env
+screenshots/

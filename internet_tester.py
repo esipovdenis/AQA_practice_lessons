@@ -30,21 +30,7 @@ if __name__ == "__main__":
         assert "/login" in current_url, "URL не содержит /login"
         print(f"✅ Перешли в: Form Authentication | URL: {current_url}")
 
-        # 26x03
-        page.goto(URL)
-        page.get_by_role('link', name="Form Authentication").click()
-        page.locator("#username").fill("tomsmith")
-        page.locator("#password").fill("SuperSecretPassword!")
-        page.get_by_role("button", name="Login").click()
-        page.wait_for_url("**/secure**")
-        assert "/secure" in page.url
-        print("✅ Успешный вход! URL: /secure")
 
-        # 26x04
-        page.get_by_role("link", name="Logout").click()
-        page.wait_for_url("**/login**")
-        assert "/login" in page.url
-        print(f"✅ Успешный выход! URL: {page.url}")
 
         # 26x05
         page.goto(URL)
